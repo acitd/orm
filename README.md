@@ -64,5 +64,4 @@ $response->results;       # all queries results in array
 $response->results[0];    # query result of users
 $response->results[1];    # query result of countries
 $response->result;        # last query result (countries)
-$response->index;         # last query index (like length)
 ```

@@ -17,7 +17,7 @@ In this example we select 3 users with id higher than 5 and we make sure that th
 $query=new Query('select * from User where id>',5,'limit 3');
 ```
 We can also divide our SQL code between multiple `Query` objects and then merge it with the `merge` method.  
-This example does exactly the same as the previous example. 
+This example does exactly the same as the previous one. 
 ```php
 $query=new Query('select * from User where id>',5);
 $query2=new Query('limit 3');

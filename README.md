@@ -35,4 +35,34 @@ $query->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
 To execute the query we use the `run` method.
 ```php
 $response=$query->run($database);
+
+$response->result;      # query result
+$response->stmt;        # PDOStatement
+$response->database;    # Database
+```
+
+### Multiple queries
+We can also combine multiple queries into one execution.  
+To do so we use the `add` method.
+```php
+# first query
+$query=new Query('select * from User limit 3');
+$query->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
+
+# second query
+$query2=new Query('select * from Country limit 3');
+$query2->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
+
+# adding the second query to the first one
+$query->add($query2);
+
+# executing both queries
+$response=$query->run($database);
+
+# read the results
+$response->results;       # all queries results in array
+$response->results[0];    # query result of users
+$response->results[1];    # query result of countries
+$response->result;        # last query result (countries)
+$response->index;         # last query index (like length)
 ```

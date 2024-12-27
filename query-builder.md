@@ -39,7 +39,7 @@ $user=Country::crud($database)->one();
 - We don't have access to the query, therefore we can't perform multiple executions at once.
 
 ## 3. Query Access
-In this case we collect the `Query` object and then using it.
+In this case we user the `query` property to collect the `Query` object and then using it.
 
 ```php
 $user=Country::crud()->query->one()->run($database)->result;

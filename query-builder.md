@@ -28,7 +28,7 @@ $user=User::one();
 ## 2. Crud Access
 In this case the choosen database is defined in the `crud` method.
 ```php
-Country::crud($database)->one();
+$user=Country::crud($database)->one();
 ```
 #### PROS
 - Flexibility to change database dynamically.
@@ -42,7 +42,7 @@ Country::crud($database)->one();
 In this case we collect the `Query` object and then using it.
 
 ```php
-Country::crud()->query->one()->run($database)->result;
+$user=Country::crud()->query->one()->run($database)->result;
 ```
 
 #### PROS

@@ -1,6 +1,6 @@
 # Entity
+## Define an entity
 Each entity is defined by extending the `Entity` class and calling the `schema` method.
-Here is an example.
 ```php
 class User extends Entity{}
 User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[

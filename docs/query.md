@@ -86,7 +86,4 @@ $response->results;       # all queries results in array
 $response->results[0];    # query result of users
 $response->results[1];    # query result of countries
 $response->result;        # last query result (countries)
-
 ```
-# What's next
-[**`LEARN ABOUT QUERY`**](query.md) [**`LEARN ABOUT ENTITY`**](entity.md)

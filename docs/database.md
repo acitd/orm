@@ -7,20 +7,20 @@ $database=new Database(new PDO('mysql:host=𝘭𝘰𝘤𝘢𝘭𝘩𝘰𝘴𝘵;
 # Database and table access
 To execute a query from the `Entity` class you have to define in which database and table will be performed.  
 You can define the choosen database in one or more of these ways.
-1. Shema
-2. Crud
-3. Query
+1. Shema access
+2. Crud access
+3. Query access
 
 It's your choice what to use each time, but to make it easier for you, these are some characteristics of each one.
 ||verbosity|flexibility|dynamic|
 |-|-|-|-|
-|Schema|🟢 Low|🔴 Low|🔴 No|
-|Crud|🟡 Mid|🟡 Mid|🟢 Yes|
-|Query|🔴 High|🟢 High|🟢 Yes|
+|Schema access|🟢 Low|🔴 Low|🔴 No|
+|Crud access|🟡 Mid|🟡 Mid|🟢 Yes|
+|Query access|🔴 High|🟢 High|🟢 Yes|
 
 Now let's see how you cant use them.
 
-## Schema Access
+## Schema access
 In this case the the choosen database and table is defined in the schema.  
 The `crud` method is called automatically, but you can always use it if you want.  
 If you pass the table as `null`, the default table name will be same as the entity name (*User* in this case).
@@ -36,7 +36,7 @@ User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[
 $user=User::one();
 ```
 
-## Crud Access
+## Crud access
 In this case the choosen database is defined in the `crud` method.  
 ```php
 class User extends Entity{}
@@ -53,7 +53,7 @@ You can also define the table dynamically for the current query like this.
 $user=User::crud($database,'𝘵𝘢𝘣𝘭𝘦')->one();
 ```
 
-## Query Access
+## Query access
 In this case you can use the `query` property to collect the [`Query`](query.md) object and then using it as you wish.
 
 ```php

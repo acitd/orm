@@ -30,7 +30,7 @@ User::schema($database, 'users', [
 
 ---
 
-# Columns
+# Cast
 
 The `columns` argument accepts an associative array defining the database columns and their corresponding casts.  
 Casts determine how values are interpreted when reading from or writing to the database.  

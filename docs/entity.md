@@ -81,6 +81,7 @@ To delete an entity, use the `delete` method:
 ```php
 $user->delete();
 ```
+---
 
 ## What's Next
 - [**Learn About Schema**](schema.md)

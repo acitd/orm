@@ -33,7 +33,7 @@ $response->stmt;        # PDOStatement
 $response->database;    # Database
 ```
 
-### Multiple queries
+### Combination (Multiple queries)
 We can also combine multiple queries into one execution.  
 To do so we use the `add` method.
 ```php

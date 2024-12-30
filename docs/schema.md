@@ -7,7 +7,7 @@ This method accepts the following arguments:
 |-----------|----------------------------|-----------|-----------------------------------------------------------------------------------------------|
 | **database** | [Database](database.md)   | 🔴 No      | If not specified (`null`), it must be provided in the Entity's `crud` method or the `run` method of the `Query`. |
 | **table**    | string                     | 🔴 No      | Defaults to the name of the Entity's class if not explicitly set (`null`).                     |
-| **columns**  | array                      | 🟢 Yes     | The first column is typically the `AI ID` (e.g., `'id'`). Simple types like integers and strings do not require casting. |
+| **columns**  | array                      | 🟢 Yes     | The first column is the `AI ID` (usually the `'id'`).<br>Simple types integers and strings do not require casting. |
 
 ### Example Usage
 ```php

@@ -27,7 +27,7 @@ User::schema($database,'users',[
 
 # Columns
 The `columns` argument receives an assoc array with all db columns and their casts.  
-The casts define how the column values will be readen or writen from the database. 
+The casts define how the column values will be read or writen from/to the database. 
 You can create your own custom casts but usually the native ones are sufficient.
 
 ### Default casts

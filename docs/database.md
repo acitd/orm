@@ -1,73 +1,94 @@
-# Connect and get the database
-To access the database in *ACORM* you have to use the `Database` object.  
-This is how you create it.
+# Connecting to and Accessing the Database  
+
+You can define and interact with your chosen database using one or more of the following methods:  
+
+1. **Schema Access**  
+2. **CRUD Access**  
+3. **Query Access**  
+
+Each method has unique characteristics, so you can choose the one that best suits your needs. Here's a quick comparison:  
+
+| Method        | Verbosity | Dynamic | Combinatorial |  
+|---------------|-----------|---------|---------------|  
+| **Schema Access** | 🟢 Low    | 🔴 No    | 🔴 No          |  
+| **CRUD Access**   | 🟡 Medium | 🟢 Yes   | 🔴 No          |  
+| **Query Access**  | 🔴 High   | 🟢 Yes   | 🟢 Yes         |  
+
+Now, let’s explore how to use each method effectively.  
+
+---
+
+## 1. Schema Access  
+
+With **Schema Access**, the database and table are defined in the schema.  
+- The `crud` method is automatically called, but you can explicitly invoke it if needed.  
+- If no table is specified (`null`), the default table name will match the entity name (*User* in this example).  
+
+### Example:  
 ```php
-use acitd\Orm\Database;
+class User extends Entity {}
 
-$database=new Database(new PDO('mysql:host=𝘭𝘰𝘤𝘢𝘭𝘩𝘰𝘴𝘵;dbname=𝘥𝘢𝘵𝘢𝘣𝘢𝘴𝘦','𝘶𝘴𝘦𝘳','𝘱𝘢𝘴𝘴𝘸𝘰𝘳𝘥'));
-```
-# Database and table access
-To execute a query from the `Entity` class you have to define in which database and table will be performed.  
-You can define the choosen database in one or more of these ways.
-1. Shema access
-2. Crud access
-3. Query access
-
-It's your choice what to use each time, but to make it easier for you, these are some characteristics of each one.
-||verbosity|dynamic|combinatorial|
-|-|-|-|-|
-|Schema access|🟢 Low|🔴 No|🔴 No|
-|Crud access|🟡 Mid|🟢 Yes|🔴 No|
-|Query access|🔴 High|🟢 Yes|🟢 Yes|
-
-Now let's see how you cant use them.
-
-## Schema access
-In this case the the choosen database and table is defined in the schema.  
-The `crud` method is called automatically, but you can always use it if you want.  
-If you pass the table as `null`, the default table name will be same as the entity name (*User* in this case).
-```php
-class User extends Entity{}
-User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[
+User::schema($database, 'table_name', [
   'id',
   'name',
   'email'
 ]);
 
-# get one (first one)
-$user=User::one();
-```
+// Retrieve the first record
+$user = User::one();
+```  
 
-## Crud access
-In this case the choosen database is defined in the `crud` method.  
+---
+
+## 2. CRUD Access  
+
+In **CRUD Access**, you specify the database dynamically using the `crud` method.  
+
+### Example:  
 ```php
-class User extends Entity{}
-User::schema(null,null,[
+class User extends Entity {}
+
+User::schema(null, null, [
   'id',
   'name',
   'email'
 ]);
 
-$user=User::crud($database)->one();
-```
-You can also define the table dynamically for the current query like this.
-```php
-$user=User::crud($database,'𝘵𝘢𝘣𝘭𝘦')->one();
-```
+// Define the database dynamically
+$user = User::crud($database)->one();
+```  
 
-## Query access
-In this case you can use the `query` property to collect the [`Query`](query.md) object and then using it as you wish.
+You can also specify the table dynamically for the current query:  
 
+### Example:  
 ```php
-class User extends Entity{}
-User::schema(null,null,[
+$user = User::crud($database, 'table_name')->one();
+```  
+
+---
+
+## 3. Query Access  
+
+With **Query Access**, you gain full control by working directly with the [`Query`](query.md) object. This approach is the most dynamic and flexible.  
+
+### Example:  
+```php
+class User extends Entity {}
+
+User::schema(null, null, [
   'id',
   'name',
   'email'
 ]);
 
-$query=Country::crud()->query->one();
-$user=$query->run($database)->result;
-```
-# What's next
-[**`LEARN ABOUT QUERY`**](query.md) [**`LEARN ABOUT ENTITY`**](entity.md)
+// Retrieve and customize the query object
+$query = User::crud()->query->one();
+$user = $query->run($database)->result;
+```  
+
+---
+
+# What’s Next?  
+
+- [**Learn About Queries**](query.md)
+- [**Learn About Entities**](entity.md)

@@ -29,14 +29,12 @@ CREATE TABLE `User` (
 use acitd\Orm\{Database,Entity,Cast};
 
 
-
-##### DATABSE #####
+# CONNECT TO THE DATABASE
 
 $database=new Database(new PDO('mysql:host=localhost;dbname=𝘥𝘢𝘵𝘢𝘣𝘢𝘴𝘦','𝘶𝘴𝘦𝘳','𝘱𝘢𝘴𝘴𝘸𝘰𝘳𝘥'));
 
 
-
-##### ENTITIES #####
+# DEFINE ENTITIES
 
 # Country Entity
 class Country extends Entity{}
@@ -45,7 +43,6 @@ Country::schema($database,null,[
   'name',
   'code'
 ]);
-
 
 # User Entity
 class User extends Entity{}
@@ -62,18 +59,39 @@ User::schema($database,null,[
 ]);
 
 
-
-##### MAIN #####
+# CREATE THE USER
 
 # Get the Greece country
 $greece=Country::where('code=','GR')->one();
 
 # Create a new user from Greece
-User::create([
-  'name'=>'User'.upiqid(),
+$user_id=User::create([
+  'name'=>'User_'.upiqid(),
   'active'=>true,
   'height'=>1.80,
   'country_id'=>$greece,
   'favorite_numbers'=>[42,43,44,45]
 ]);
+
+echo 'The user with ID '.$user_id.' has been created!';
+
+
+# UPDATE THE USER
+
+$new_favorite_number=100;
+
+# Getting the user from the database
+$user=User::get($user_id);
+
+# Adding new number
+$user->favorite_numbers[]=$new_favorite_number;
+$user->update();
+
+echo 'The user with ID '.$user_id.' has been updated!';
+
+
+# DELETE THE USER
+$user->delete();
+
+echo 'The user with ID '.$user_id.' has been deleted!';
 ```

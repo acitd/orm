@@ -1,14 +1,14 @@
 # Query
 This is the core object of sql queries.  
-Usually **we don't have to use it directly**, but it's good to know how it works.
+Usually **yout don't have to use it directly**, but it's good to know how it works.
 
 ### Composition
-If we want a value to be escaped (for security), we just separate the value with commas.  
-In this example we select 3 users with id higher than 5 and we make sure that the number `5` is escaped properly.
+If you want a value to be escaped (for security), you just separate the value with commas.  
+With this example you select 3 users with id higher than 5 and we make sure that the number `5` is escaped properly.
 ```php
 $query=new Query('select * from User where id>',5,'limit 3');
 ```
-We can also divide our SQL code between multiple `Query` objects and then merge it with the `merge` method.  
+You can also divide our SQL code between multiple `Query` objects and then merge it with the `merge` method.  
 This example does exactly the same as the previous one. 
 ```php
 $query=new Query('select * from User where id>',5);
@@ -18,13 +18,13 @@ $query->merge($query2);
 
 ### Mutation
 After the execution of the above query it will return a result of a PDOStatement.  
-We usually prefer to work directly with data, so we can modify the result with the `then` method.
+It's preferable to work directly with data, so you can modify the result with the `then` method.
 ```php
 $query->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
 ```
 
 ### Execution
-To execute the query we use the `run` method.
+To execute the query you use the `run` method.
 ```php
 $response=$query->run($database);
 
@@ -33,9 +33,9 @@ $response->stmt;        # PDOStatement
 $response->database;    # Database
 ```
 
-### Combination (Multiple queries)
-We can also combine multiple queries into one execution.  
-To do so we use the `add` method.
+### Combination (multiple queries at once)
+You can also combine multiple queries into one execution.  
+To do so you use the `add` method.
 ```php
 # first query
 $query=new Query('select * from User limit 3');

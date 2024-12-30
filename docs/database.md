@@ -67,3 +67,5 @@ User::schema(null,null,[
 $query=Country::crud()->query->one();
 $user=$query->run($database)->result;
 ```
+# What's next
+[`LEARN ABOUT ENTITY`](entity.md)

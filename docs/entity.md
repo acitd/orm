@@ -2,6 +2,8 @@
 ## Define an entity
 Each entity is defined by extending the `Entity` class and calling the `schema` method.
 ```php
+use acitd\Orm\Entity;
+
 class User extends Entity{}
 User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[
   'id',

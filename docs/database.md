@@ -6,7 +6,8 @@ You can define and interact with your chosen database using one or more of the f
 2. **CRUD Access**  
 3. **Query Access**  
 
-Each method has unique characteristics, so you can choose the one that best suits your needs. Here's a quick comparison:  
+Each method has unique characteristics, so you can choose the one that best suits your needs.  
+Here's a quick comparison:  
 
 | Method        | Verbosity | Dynamic | Combinatorial |  
 |---------------|-----------|---------|---------------|  
@@ -20,7 +21,7 @@ Now, let’s explore how to use each method effectively.
 
 ## 1. Schema Access  
 
-With **Schema Access**, the database and table are defined in the schema.  
+With **Schema Access**, the database and table are defined in the schema.
 - The `crud` method is automatically called, but you can explicitly invoke it if needed.  
 - If no table is specified (`null`), the default table name will match the entity name (*User* in this example).  
 
@@ -69,7 +70,8 @@ $user = User::crud($database, 'table_name')->one();
 
 ## 3. Query Access  
 
-With **Query Access**, you gain full control by working directly with the [`Query`](query.md) object. This approach is the most dynamic and flexible.  
+With **Query Access**, you gain full control by working directly with the [`Query`](query.md) object.  
+This approach is the most dynamic and flexible.  
 
 ### Example:  
 ```php

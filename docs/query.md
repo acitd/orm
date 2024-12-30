@@ -8,8 +8,21 @@ With this example you select 3 users with id higher than 5 and we make sure that
 ```php
 $query=new Query('select * from User where id>',5,'limit 3');
 ```
-You can also divide our SQL code between multiple `Query` objects and then merge it with the `merge` method.  
-This example does exactly the same as the previous one. 
+### List of values
+To pass a list of values that you desire to be escaped you can use an array.
+```php
+$ids=[42,43,44,45];
+$query=new Query('select * from User where id in (',$ids,')');
+```
+
+### Subqueries
+You can even pass a `Query` as value to use it as subquery.
+```php
+$subquery=new Query('select id from Country where name=','Greece');
+$query=new Query('select * from User where id in (',$subquery,')');
+```
+### Merge queries
+You can also divide your SQL code between multiple `Query` objects and then merge it with the `merge` method.  
 ```php
 $query=new Query('select * from User where id>',5);
 $query2=new Query('limit 3');

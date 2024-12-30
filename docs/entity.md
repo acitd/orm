@@ -19,7 +19,7 @@ This is a very simple example. For a detailed guide, visit [Schema Documentation
 
 ## Using Entities
 To **create** or **read** an entity, you can use the `crud` method.  
-When [accessing the database statically](database.md#schema-access), the `crud` method is called automatically.
+When [accessing the database statically](database.md#1-schema-access), the `crud` method is called automatically.
 
 To **update** or **delete**, you can use the entity's instance methods.
 

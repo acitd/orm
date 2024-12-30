@@ -1,8 +1,8 @@
 # Query
 This is the core object of sql queries.  
-Usually **yout don't have to use it directly**, but it's good to know how it works.
+Usually **you don't have to use it directly**, but it's good to know how it works for special cases.
 
-### Composition
+## Composition
 If you want a value to be escaped (for security), you just separate the value with commas.  
 With this example you select 3 users with id higher than 5 and we make sure that the number `5` is escaped properly.
 ```php
@@ -16,14 +16,14 @@ $query2=new Query('limit 3');
 $query->merge($query2);
 ```
 
-### Mutation
-After the execution of the above query it will return a result of a PDOStatement.  
+## Mutation
+The execution of the above query will return a result of a PDOStatement.  
 It's preferable to work directly with data, so you can modify the result with the `then` method.
 ```php
 $query->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
 ```
 
-### Execution
+## Execution
 To execute the query you use the `run` method.
 ```php
 $response=$query->run($database);
@@ -33,7 +33,7 @@ $response->stmt;        # PDOStatement
 $response->database;    # Database
 ```
 
-### Combination (multiple queries at once)
+## Combination (multiple queries at once)
 You can also combine multiple queries into one execution.  
 To do so you use the `add` method.
 ```php

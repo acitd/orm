@@ -68,4 +68,4 @@ $query=Country::crud()->query->one();
 $user=$query->run($database)->result;
 ```
 # What's next
-[**`LEARN ABOUT ENTITY`**](entity.md)
+[**`LEARN ABOUT QUERY`**](query.md) [**`LEARN ABOUT ENTITY`**](entity.md)

@@ -1,6 +1,9 @@
 # Query
 This is the core object of sql queries.  
 Usually **you don't have to use it directly**, but it's good to know how it works for special cases.
+```php
+use acitd\Orm\Query;
+```
 
 ## Composition
 If you want a value to be escaped (for security), you just separate the value with commas.  

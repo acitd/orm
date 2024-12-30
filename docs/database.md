@@ -12,11 +12,11 @@ You can define the choosen database in one or more of these ways.
 3. Query access
 
 It's your choice what to use each time, but to make it easier for you, these are some characteristics of each one.
-||verbosity|flexibility|dynamic|
+||verbosity|dynamic|combinatorial|
 |-|-|-|-|
-|Schema access|🟢 Low|🔴 Low|🔴 No|
-|Crud access|🟡 Mid|🟡 Mid|🟢 Yes|
-|Query access|🔴 High|🟢 High|🟢 Yes|
+|Schema access|🟢 Low|🔴 No|🔴 No|
+|Crud access|🟡 Mid|🟢 Yes|🔴 No|
+|Query access|🔴 High|🟢 Yes|🟢 Yes|
 
 Now let's see how you cant use them.
 

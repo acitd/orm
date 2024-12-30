@@ -1,68 +1,88 @@
 # Entity
-## Define an entity
-Each entity is defined by extending the `Entity` class and calling the `schema` method.
+
+## Defining an Entity
+Each entity is defined by extending the `Entity` class and using the `schema` method.
+
 ```php
 use acitd\Orm\Entity;
 
-class User extends Entity{}
-User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[
-  'id',
-  'name',
-  'email'
+class User extends Entity {}
+
+User::schema($database, 'table', [
+    'id',
+    'name',
+    'email'
 ]);
 ```
-The above is an extremelly simple example, go [here](schema.md) to learn more about schema.
 
-## Use entities
-To **create** or **read** a new entity from the database you use the `crud` method.  
-In case you [access the database statically](database.md#schema-access) the `crud` method is called automatically.
+This is a very simple example. For a detailed guide, visit [Schema Documentation](schema.md).
+
+## Using Entities
+To **create** or **read** an entity, you can use the `crud` method.
+When [accessing the database statically](database.md#schema-access), the `crud` method is called automatically.
+
+In the other hand to **update**, or **delete** you can use the entity's instance methods.
 
 ### Create
-To create a new entity to the database you can use the `create` method from the `crud`.  
+To create a new entity in the database, use the `create` method (from `crud`):
+
 ```php
 User::create([
-  'name'=>'Alex',
-  'email'=>'alex@domain.com'
+    'name' => 'Alex',
+    'email' => 'alex@domain.com'
 ]);
 ```
-You can also use the `save` method to achive the same result like this.
+
+Alternatively, use the `save` method:
+
 ```php
-$user=new User;
-$user->name='Alex';
-$user->email='alex@domain.com';
+$user = new User;
+$user->name = 'Alex';
+$user->email = 'alex@domain.com';
 $user->save();
 ```
+
 ### Read
-To get an entity from the database you can use the `one` method from the `crud`.  
+To retrieve an entity from the database, use the `one` method (from `crud`):
+
 ```php
-# get one (first one)
-$user=User::one();
+# Retrieve the first entity
+$user = User::one();
 ```
-Once an entity is collected you can access it's data via it's properties.
+
+Once an entity is retrieved, its data can be accessed via its properties:
+
 ```php
 echo $user->id;
 echo '<br>';
 echo $user->name;
 ```
+
 ### Update
-To modify an entity you can just reassign the new values to it's properties, and then call the `update` method.
+To update an entity, modify its properties and call the `update` method:
+
 ```php
-$user->name='Alex';
-$user->email='alex@domain.com';
+$user->name = 'Alex';
+$user->email = 'alex@domain.com';
 $user->update();
 ```
-The *ACORM* is smart enough to update only the new values.
 
-Tou can also use the `save` method that in this case does the same thing.
+Alternatively, use the `save` method, which behaves the same way in this case:
+
 ```php
 $user->save();
 ```
 
+*ACORM* optimizes updates to only modify changed values.
+
 ### Delete
-To delete an entity you just call the `delete` method.
+To delete an entity, use the `delete` method:
+
 ```php
 $user->delete();
 ```
 
-# What's next
-[**`LEARN ABOUT SCHEMA`**](schema.md) [**`LEARN ABOUT CRUD`**](crud.md)
+## What's Next
+- [**Learn About Schema**](schema.md)
+- [**Learn About CRUD**](crud.md)
+

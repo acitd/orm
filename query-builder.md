@@ -1,5 +1,5 @@
 # Database access
-When we want to execute a query from the entity class there are 3 ways to choose the database.
+When we want to execute a query from the entity class there are 3 ways to select the database.
 
 ## 1. Schema Access
 In this case the the choosen database is defined in the schema.
@@ -39,7 +39,7 @@ $user=Country::crud($database)->one();
 - We don't have access to the query, therefore we can't perform multiple executions at once.
 
 ## 3. Query Access
-In this case we user the `query` property to collect the `Query` object and then using it.
+In this case we user the `query` property to collect the `Query` [object](query.md) and then using it.
 
 ```php
 $user=Country::crud()->query->one()->run($database)->result;

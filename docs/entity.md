@@ -8,10 +8,10 @@ use acitd\Orm\Entity;
 
 class User extends Entity {}
 
-User::schema($database, 'table', [
-    'id',
-    'name',
-    'email'
+User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[
+  'id',
+  'name',
+  'email'
 ]);
 ```
 
@@ -28,8 +28,8 @@ To create a new entity in the database, use the `create` method (from `crud`):
 
 ```php
 User::create([
-    'name' => 'Alex',
-    'email' => 'alex@domain.com'
+  'name'=>'Alex',
+  'email'=>'alex@domain.com'
 ]);
 ```
 
@@ -62,8 +62,8 @@ echo $user->name;
 To update an entity, modify its properties and call the `update` method:
 
 ```php
-$user->name = 'Alex';
-$user->email = 'alex@domain.com';
+$user->name='Alex';
+$user->email='alex@domain.com';
 $user->update();
 ```
 

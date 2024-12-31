@@ -47,7 +47,7 @@ To retrieve an entity from the database, use the `one` method (from `crud`):
 
 ```php
 # Retrieve the first entity
-$user = User::one();
+$user=User::one();
 ```
 
 Once an entity is retrieved, its data can be accessed via its properties:

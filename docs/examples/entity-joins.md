@@ -37,8 +37,8 @@ Team::schema($db,columns:[
 $entity=User::
   where('self.id=',1)
   ->join('left',$team=Team::attachment('@owner_id=self.id'))
-  ->join('left',$maintainer=User::attachment('@id='.$team->ref('maintainer_id')))
-  ->join('left',$country=Country::attachment('@id='.$maintainer->ref('country_id')))
+  ->join('left',$maintainer=User::attachment('@id='.$team->maintainer_id))
+  ->join('left',$country=Country::attachment('@id='.$maintainer->country_id))
   ->select([
     'name',                                              # object's selected property
     'location',                                          # object's selected property

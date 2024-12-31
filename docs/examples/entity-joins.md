@@ -42,12 +42,15 @@ $entity=User::
   ->select([
     'name',                                              # object's selected property
     'location',                                          # object's selected property
-    'owner_email'=>'email',                              # object's selected property with rename
-    'maintainer_name'=>$maintainer->name,                # object attachment
-    'maintainer_country'=>$country->name,                # object attachment
-    'team'=>$team(['id','name']),                        # sub-object
-    'team.maintainer_name'=>$maintainer->name,           # sub-object attachment
-    'team.maintainer_location'=>$maintainer->location    # sub-object attachment
+    'owner_email'=>'email',                              # object's renamed selected property
+    'maintainer_name'=>$maintainer->name,                # object property attachment
+    'maintainer_country'=>$country->name,                # object property attachment
+    'team'=>$team([                                      # sub-object attachment
+      'id',                                              # sub-object's selected property
+      'team_name'=>'name'                                # sub-object's renamed selected property
+    ]),
+    'team.maintainer_name'=>$maintainer->name,           # sub-object property attachment
+    'team.maintainer_location'=>$maintainer->location    # sub-object property attachment
   ])
 ->one();
 
@@ -63,7 +66,7 @@ $entity=User::
   "maintainer_country":"Italy",
   "team":{
      "id":1,
-     "name":"ACITD TEAM",
+     "team_name":"ACITD TEAM",
      "maintainer_name":"Peppe",
      "maintainer_location":[41.902782,12.496366]
   }

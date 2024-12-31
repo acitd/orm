@@ -29,14 +29,14 @@ With **Schema Access**, the database and table are defined in the schema.
 ```php
 class User extends Entity {}
 
-User::schema($database, 'table_name', [
+User::schema($database,'table_name',[
   'id',
   'name',
   'email'
 ]);
 
 // Retrieve the first record
-$user = User::one();
+$user=User::one();
 ```  
 
 ---
@@ -49,7 +49,7 @@ In **CRUD Access**, you specify the database dynamically using the `crud` method
 ```php
 class User extends Entity {}
 
-User::schema(null, null, [
+User::schema(columns:[
   'id',
   'name',
   'email'
@@ -77,7 +77,7 @@ This approach is the most dynamic and flexible.
 ```php
 class User extends Entity {}
 
-User::schema(null, null, [
+User::schema(columns:[
   'id',
   'name',
   'email'

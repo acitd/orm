@@ -27,9 +27,8 @@ With **Schema Access**, the database and table are defined in the schema.
 
 ### Example:  
 ```php
-class User extends Entity {}
-
-User::schema($database,'table_name',[
+class User extends Entity{}
+User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[
   'id',
   'name',
   'email'
@@ -47,8 +46,7 @@ In **CRUD Access**, you specify the database dynamically using the `crud` method
 
 ### Example:  
 ```php
-class User extends Entity {}
-
+class User extends Entity{}
 User::schema(columns:[
   'id',
   'name',
@@ -56,14 +54,14 @@ User::schema(columns:[
 ]);
 
 // Define the database dynamically
-$user = User::crud($database)->one();
+$user=User::crud($database)->one();
 ```  
 
 You can also specify the table dynamically for the current query:  
 
 ### Example:  
 ```php
-$user = User::crud($database, 'table_name')->one();
+$user=User::crud($database, 'table_name')->one();
 ```  
 
 ---
@@ -75,8 +73,7 @@ This approach is the most dynamic and flexible.
 
 ### Example:  
 ```php
-class User extends Entity {}
-
+class User extends Entity{}
 User::schema(columns:[
   'id',
   'name',
@@ -84,8 +81,8 @@ User::schema(columns:[
 ]);
 
 // Retrieve and customize the query object
-$query = User::crud()->query->one();
-$user = $query->run($database)->result;
+$query=User::crud()->query->one();
+$user=$query->run($database)->result;
 ```  
 
 ---

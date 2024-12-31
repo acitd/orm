@@ -36,9 +36,9 @@ User::create([
 Alternatively, use the `save` method:
 
 ```php
-$user = new User;
-$user->name = 'Alex';
-$user->email = 'alex@domain.com';
+$user=new User;
+$user->name='Alex';
+$user->email='alex@domain.com';
 $user->save();
 ```
 

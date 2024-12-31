@@ -12,7 +12,7 @@ To ensure values are properly escaped for security, separate them with commas.
 For example, the following query selects three users with an `id` greater than `5` while ensuring the number `5` is safely escaped:
 
 ```php
-$query = new Query('SELECT * FROM User WHERE id >', 5, 'LIMIT 3');
+$query=new Query('SELECT * FROM User WHERE id >',5,'LIMIT 3');
 ```
 
 ### Lists of Values
@@ -20,8 +20,8 @@ You can pass an array to escape multiple values at once.
 For example:
 
 ```php
-$ids = [42, 43, 44, 45];
-$query = new Query('SELECT * FROM User WHERE id IN (', $ids, ')');
+$ids=[42, 43, 44, 45];
+$query=new Query('SELECT * FROM User WHERE id IN (',$ids,')');
 ```
 
 ### Subqueries
@@ -29,16 +29,16 @@ You can use another `Query` object as a subquery.
 For instance:
 
 ```php
-$subquery = new Query('SELECT id FROM Country WHERE name =', 'Greece');
-$query = new Query('SELECT * FROM User WHERE id IN (', $subquery, ')');
+$subquery=new Query('SELECT id FROM Country WHERE name =','Greece');
+$query=new Query('SELECT * FROM User WHERE id IN (',$subquery,')');
 ```
 
 ### Merging Queries
 Split your SQL code into multiple `Query` objects and combine them using the `merge` method:
 
 ```php
-$query1 = new Query('SELECT * FROM User WHERE id >', 5);
-$query2 = new Query('LIMIT 3');
+$query1=new Query('SELECT * FROM User WHERE id >',5);
+$query2=new Query('LIMIT 3');
 $query1->merge($query2);
 ```
 
@@ -57,9 +57,9 @@ This returns a response object with the following properties:
 ```php
 $response = $query->run($database);
 
-$response->result;      // Query result
-$response->stmt;        // PDOStatement
-$response->database;    // Database instance
+$response->result;      # Query result
+$response->stmt;        # PDOStatement
+$response->database;    # Database instance
 ```
 
 ## Combining Multiple Queries
@@ -69,11 +69,11 @@ Here's an example:
 ```php
 # First query
 $query1 = new Query('SELECT * FROM User LIMIT 3');
-$query1->then(fn($response) => $response->result->fetchAll(PDO::FETCH_ASSOC));
+$query1->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
 
 # Second query
 $query2 = new Query('SELECT * FROM Country LIMIT 3');
-$query2->then(fn($response) => $response->result->fetchAll(PDO::FETCH_ASSOC));
+$query2->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
 
 # Adding the second query to the first one
 $query->add($query2);

@@ -34,7 +34,7 @@ User::schema($database,'𝘵𝘢𝘣𝘭𝘦',[
   'email'
 ]);
 
-// Retrieve the first record
+# Retrieve the first record
 $user=User::one();
 ```  
 
@@ -53,7 +53,7 @@ User::schema(columns:[
   'email'
 ]);
 
-// Define the database dynamically
+# Define the database dynamically
 $user=User::crud($database)->one();
 ```  
 
@@ -80,7 +80,7 @@ User::schema(columns:[
   'email'
 ]);
 
-// Retrieve and customize the query object
+# Retrieve and customize the query object
 $query=User::crud()->query->one();
 $user=$query->run($database)->result;
 ```  

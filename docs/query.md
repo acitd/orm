@@ -47,7 +47,7 @@ When executed, a `Query` returns a `PDOStatement`.
 To simplify data handling, you can use the `then` method to process the result directly:
 
 ```php
-$query->then(fn($response) => $response->result->fetchAll(PDO::FETCH_ASSOC));
+$query->then(fn($response)=>$response->result->fetchAll(PDO::FETCH_ASSOC));
 ```
 
 ## Execution

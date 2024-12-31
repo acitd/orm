@@ -59,13 +59,13 @@ $entity=User::
   "name":"Alex",
   "location":[37.9795,23.7162],
   "owner_email":"alex@domain.com",
+  "maintainer_name":"Peppe",
+  "maintainer_country":"Italy",
   "team":{
      "id":1,
      "name":"ACITD TEAM",
      "maintainer_name":"Peppe",
      "maintainer_location":[41.902782,12.496366]
-  },
-  "maintainer_name":"Peppe",
-  "maintainer_country":"Italy"
+  }
 }
 ```

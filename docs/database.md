@@ -61,7 +61,7 @@ You can also specify the table dynamically for the current query:
 
 ### Example:  
 ```php
-$user=User::crud($database, 'table_name')->one();
+$user=User::crud($database,'𝘵𝘢𝘣𝘭𝘦')->one();
 ```  
 
 ---

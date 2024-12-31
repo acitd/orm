@@ -5,7 +5,7 @@ An advanced example of entity joins.
 use acitd\Orm\{Database,Entity,Cast};
 
 # CONNECT TO THE DATABASE
-$database=new Database(new PDO('mysql:host=localhost;dbname=𝘥𝘢𝘵𝘢𝘣𝘢𝘴𝘦','𝘶𝘴𝘦𝘳','𝘱𝘢𝘴𝘴𝘸𝘰𝘳𝘥'));
+$db=new Database(new PDO('mysql:host=localhost;dbname=𝘥𝘢𝘵𝘢𝘣𝘢𝘴𝘦','𝘶𝘴𝘦𝘳','𝘱𝘢𝘴𝘴𝘸𝘰𝘳𝘥'));
 
 # ENTITIES
 class User extends Entity{}

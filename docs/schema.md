@@ -15,15 +15,15 @@ use acitd\Orm\{Entity,Cast};
 
 class User extends Entity{}
 User::schema($database,'users',[
-    'id',                          // Auto-increment ID
-    'name',                        // String column
-    'active'=>Cast::bool(),        // Boolean column
-    'height'=>Cast::decimal(2),    // Decimal column with 2 decimal places
-    'data'=>Cast::json(),          // JSON-encoded column
-    'date'=>Cast::datetime(),      // Datetime column
-    'country_id',                  // Foreign key
-    'favorite_numbers'=>Cast::int_list('|'),   // List of integers, separated by '|'
-    'location'=>Cast::point()      // 2D coordinates (Point)
+  'id',                          // Auto-increment ID
+  'name',                        // String column
+  'active'=>Cast::bool(),        // Boolean column
+  'height'=>Cast::decimal(2),    // Decimal column with 2 decimal places
+  'data'=>Cast::json(),          // JSON-encoded column
+  'date'=>Cast::datetime(),      // Datetime column
+  'country_id',                  // Foreign key
+  'favorite_numbers'=>Cast::int_list('|'),   // List of integers, separated by '|'
+  'location'=>Cast::point()      // 2D coordinates (Point)
 ]);
 ```
 
